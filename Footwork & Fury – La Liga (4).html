@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Footwork &amp; Fury – La Liga</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#f3f7fa;--card:#fff;--ink:#0f1f2e;--muted:#5f7185;--accent:#0e7c86;--hl:#a8e6a1;--line:#dde6ee;--notice:#e9f1f5;--mint:#e0f3ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1a24;--card:#12283a;--ink:#e8f1f7;--muted:#9fb3c6;--accent:#4fd1c5;--hl:#1f6b3f;--line:#26405a;--notice:#16324a;--mint:#16403a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1a24;--card:#12283a;--ink:#e8f1f7;--muted:#9fb3c6;--accent:#4fd1c5;--hl:#1f6b3f;--line:#26405a;--notice:#16324a;--mint:#16403a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 "Instrument Sans",system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:0 1.5rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+nav{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:space-between;padding:1.5rem 0;font-weight:600}
+nav div{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+h1{font:800 clamp(2.4rem,9vw,6rem)/.95 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.04em;margin:4rem 0 2rem}
+h1 span{display:block;background:linear-gradient(transparent 62%,var(--hl) 62%,var(--hl) 92%,transparent 92%);width:fit-content}
+.lede{max-width:34rem;font-size:1.3rem;color:var(--muted);margin:0 0 5rem}
+h2{font:800 1.6rem/1.2 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 1.5rem}
+section{padding:3rem 0;border-top:2px solid var(--ink)}
+.work a{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line);text-decoration:none}
+.work a:hover h3{color:var(--accent)}
+.work h3{font:800 1.5rem/1.2 "Bricolage Grotesque",system-ui,sans-serif;margin:0}
+.work p{margin:0;color:var(--muted)}
+.work small{display:block;margin-top:.25rem;font-weight:600;color:var(--ink)}
+.about{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem}
+.about p{margin:0 0 1rem;max-width:36rem}
+.contact a{font:800 clamp(1.6rem,6vw,3.2rem)/1.1 "Bricolage Grotesque",system-ui,sans-serif;color:var(--accent);text-underline-offset:.2em}
+footer{padding:3rem 0;color:var(--muted);font-size:.9rem}
+@media (max-width:640px){.work a,.about{grid-template-columns:1fr;gap:.5rem}}
+.login{min-height:100dvh;display:grid;place-items:center;padding:1.5rem}
+#login[hidden]{display:none}
+.login form{width:100%;max-width:22rem}
+.login h2{font-size:2.4rem;letter-spacing:-.03em;margin-bottom:.5rem}
+.login label{display:block;font-weight:600;margin:1rem 0 .25rem}
+.login input{width:100%;padding:.75rem;border:2px solid var(--ink);background:var(--bg);color:var(--ink);font:inherit;border-radius:6px}
+.login button{margin-top:1.5rem;width:100%;padding:.8rem;border:0;border-radius:6px;background:var(--accent);color:var(--bg);font:600 1rem "Instrument Sans",system-ui,sans-serif;cursor:pointer}
+#err{min-height:1.5rem;margin:1rem 0 0;color:var(--ink);font-weight:600}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;padding:0;margin:0 0 1.5rem;font-size:.9rem}
+.legend li::before{content:"";display:inline-block;width:.8rem;height:.8rem;margin-right:.4rem;border-radius:2px;background:var(--c)}
+.z1{--c:var(--accent)}.z2{--c:#e0a82e}.z3{--c:#5b8fd6}.z4{--c:#d9473a}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;white-space:nowrap}
+th,td{padding:.55rem .6rem;text-align:right;border-bottom:1px solid var(--line)}
+th:nth-child(2),td:nth-child(2),th:last-child,td:last-child{text-align:left}
+th{font-weight:600;color:var(--muted)}
+tbody tr td:nth-child(2),tbody tr td:nth-child(10){font-weight:600}
+tbody tr[class] td:first-child{box-shadow:inset 4px 0 var(--c)}
+.f i{display:inline-block;width:1.4rem;height:1.4rem;line-height:1.4rem;text-align:center;font-style:normal;font-size:.75rem;font-weight:600;border-radius:4px;margin-right:2px;color:#fff}
+.f .W{background:#14783c}.f .D{background:#6b6b7b}.f .L{background:#b83a2e}
+.fixture{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.25rem;font:800 clamp(1.8rem,6vw,3.2rem)/1.1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em}
+.fixture span{font-size:1.2rem;font-weight:400;color:var(--muted)}
+.kick{font-weight:600;font-size:1.2rem;margin:1rem 0 .25rem}
+.ctx{margin:0;color:var(--muted)}
+.match .when{font-weight:600;color:var(--accent);margin:0 0 .5rem}
+.fixture{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin:0 0 1rem;font:800 clamp(1.8rem,7vw,3.6rem)/1.1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.03em}
+.fixture em{font:400 1.1rem "Instrument Sans",system-ui,sans-serif;color:var(--muted);letter-spacing:0}
+.match .meta{margin:0;color:var(--muted)}
+.f .N{background:transparent;border:1px solid var(--line);color:var(--muted)}
+body,h1,h2,h3,.work h3,.contact a,.fixture,.fixture em,.login button,.login input{font-family:"Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:1100px}
+nav{padding:1rem 0;margin-bottom:1rem;border-bottom:1px solid var(--line)}
+nav span{font-weight:800}
+h1{font-size:1.15rem;font-weight:700;letter-spacing:0;line-height:1.3;margin:0}
+section{padding:1.5rem;background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1.25rem 0}
+h2{display:flex;align-items:center;gap:.75rem;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.login h2{display:block;text-transform:none;letter-spacing:-.02em;color:var(--ink)}
+.login h2::after{display:none}
+.work h3{font-size:1.1rem;font-weight:700}
+.banner{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.5rem;border-radius:20px;color:#fff;background:linear-gradient(100deg,#0a2230,#0e6b82 70%,#0a7c86);box-shadow:0 10px 30px rgba(10,60,80,.25)}
+.banner p{margin:.2rem 0 0;opacity:.8;font-size:.9rem}
+.pill{padding:.6rem 1.2rem;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);border-radius:999px;color:#fff;font-weight:700;text-decoration:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem 1.25rem}
+.stat b{display:block;font-size:1.7rem;line-height:1.3}
+.stat span{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.notice{display:block;padding:1rem 1.25rem;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;background:var(--notice);text-decoration:none}
+.notice small{display:block;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid a{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.4rem 1rem;border:1px solid var(--line);border-radius:16px;text-decoration:none;font-weight:700;font-size:.9rem}
+.grid a:hover{border-color:var(--accent)}
+.grid i{display:grid;place-items:center;width:3rem;height:3rem;border-radius:12px;background:var(--mint);font-style:normal;font-size:1.4rem}
+@media (max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+nav div{align-items:center}
+#logout{font:inherit;font-weight:700;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:999px;padding:.2rem .9rem;cursor:pointer}
+#logout:hover{background:var(--accent);color:var(--bg)}
+#chpw{font:inherit;font-weight:700;color:var(--accent);background:none;border:0;padding:0;cursor:pointer}
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);padding:1.5rem;width:min(24rem,92vw)}
+dialog::backdrop{background:rgba(5,20,30,.55)}
+dialog label{display:block;font-weight:600;margin:1rem 0 .25rem}
+dialog input{width:100%;padding:.7rem;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;border-radius:8px}
+dialog .row{display:flex;gap:.75rem;margin-top:1rem}
+dialog .row button{flex:1;padding:.7rem;border-radius:8px;font:inherit;font-weight:700;cursor:pointer;border:1px solid var(--accent);background:none;color:var(--accent)}
+dialog .row button[type=submit]{background:var(--accent);color:var(--bg)}
+#pmsg{min-height:1.4rem;margin:.75rem 0 0;font-weight:600}
+#settings{font:inherit;font-weight:700;color:var(--accent);background:none;border:0;padding:0;cursor:pointer}
+td.f,th:nth-child(11){text-align:left}
+th.cc,td.cc{min-width:8rem;text-align:left}
+td.cc{outline-offset:-2px;background:var(--notice)}
+#sdlg .row input{flex:3;width:auto}
+#sdlg .hint{margin:.5rem 0 0;color:var(--muted);font-size:.9rem}
+#smsg{min-height:1.4rem;margin:.5rem 0 0;font-weight:600}
+#clist{list-style:none;padding:0;margin:.5rem 0 1rem}
+#clist li{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--line)}
+#clist button{font:inherit;font-weight:700;color:var(--accent);background:none;border:0;cursor:pointer}
+#nl h3{font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem}
+.nm{font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem}
+.fx{list-style:none;padding:0;margin:0}
+.fx li{display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding:.5rem 0;border-bottom:1px solid var(--line)}
+.fx time{min-width:11rem;color:var(--muted);font-weight:600}
+.leaders{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0 0 1.5rem}
+.lead{border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;background:var(--notice)}
+.lead small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lead b{display:block;font-size:1.1rem;line-height:1.3;margin-top:.25rem}
+.lead span{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.75rem}
+.sc{border:1px solid var(--line);border-radius:14px;padding:.75rem 1rem;background:var(--card)}
+.sc small{color:var(--muted);font-weight:600}
+.sc div{display:flex;justify-content:space-between;gap:.5rem;padding-top:.25rem}
+.sc .w{font-weight:800}
+@media (max-width:640px){.leaders{grid-template-columns:1fr}}
+.top10{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:0 0 1.5rem}
+.top10 .nm{margin:0 0 .5rem}
+.tw{overflow-x:auto}
+.top10 td,.top10 th{text-align:left}
+.top10 th:last-child,.top10 td:last-child{text-align:right;font-weight:700}
+.top10 .note{grid-column:1/-1;margin:0;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.top10{grid-template-columns:1fr}}
+.lv{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}
+.lv a{padding:.6rem 1.2rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-weight:700;text-decoration:none}
+.lv a:hover{background:var(--accent);color:var(--bg)}
+#live .hint{margin:0;color:var(--muted);font-size:.9rem}
+.hc{border:1px solid var(--line);border-radius:14px;padding:1rem;background:var(--card)}
+.hc small{color:var(--muted);font-weight:600}
+.hc h3{font-size:1.1rem;font-weight:700;margin:.25rem 0}
+.hc p{margin:0 0 .75rem;color:var(--muted);font-size:.95rem}
+.hc a{font-weight:700;color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+<form id="login-form">
+<h2>Log in to Footwork &amp; Fury</h2>
+<label for="u">Username</label>
+<input id="u" autocomplete="username" required>
+<label for="p">Password</label>
+<input id="p" type="password" autocomplete="current-password" required>
+<button type="submit">Log in</button>
+<p id="err" role="alert"></p>
+</form>
+</div>
+<main id="site" hidden>
+<nav><span>Footwork &amp; Fury</span><div><a href="#work">Clubs</a><a href="#table">La Liga</a><a href="#seriea">Serie A</a><a href="#ucl">Champions League</a><a href="#nl">Nations League</a><a href="#about">The league</a><a href="#contact">Contact</a><button type="button" id="settings">Settings</button><button type="button" id="chpw">Change password</button><button type="button" id="logout">Log out</button></div></nav>
+
+<div class="banner"><div><h1 id="greet">Good afternoon, shxhyb_07 👋</h1><p id="today">Wed 21 Oct</p></div><a class="pill" href="#match">View the next match →</a></div>
+<div class="stats">
+<div class="stat"><b>20</b><span>La Liga clubs</span></div>
+<div class="stat"><b>#1</b><span>Barcelona lead</span></div>
+<div class="stat"><b>36</b><span>Champions League clubs</span></div>
+<div class="stat"><b>26 Oct</b><span>Next: El Clásico</span></div>
+</div>
+<a class="notice" href="#match"><strong>Next: Barcelona vs Real Madrid</strong><small>Monday 26 October, 1:30 am IST. Tap to read more.</small></a>
+<section class="quick"><h2>Quick access</h2><div class="grid">
+<a href="#table"><i>⚽</i>La Liga table</a>
+<a href="#seriea"><i>📊</i>Serie A table</a>
+<a href="#ucl"><i>🏆</i>Champions League</a>
+<a href="#match"><i>🕓</i>Match day</a>
+</div></section>
+
+<section id="today">
+<h2>Today’s match</h2>
+<div class="fixture"><strong>Levante UD</strong><span>vs</span><strong>Athletic Club</strong></div>
+<p class="kick">Wednesday, 21 October 2026 at 11:30 pm</p>
+<p class="ctx">Levante are 17th with 7 points from 8 games. Athletic are 11th with 9 points from 7 games.</p>
+</section>
+
+<section id="live">
+<h2>Watch live</h2>
+<p>These sites show live scores, goals and minute-by-minute updates while matches are on. Each one opens in a new tab.</p>
+<div class="lv">
+<a href="https://www.espn.com/soccer/scoreboard" target="_blank" rel="noopener noreferrer">ESPN live scores</a>
+<a href="https://www.fotmob.com/" target="_blank" rel="noopener noreferrer">FotMob</a>
+<a href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">UEFA.com</a>
+<a href="https://www.laliga.com/en-GB" target="_blank" rel="noopener noreferrer">LaLiga.com</a>
+</div>
+<p class="hint">Next big match: Barcelona vs Real Madrid, Monday 26 October, 1:30 am IST.</p>
+</section>
+
+<section id="hl">
+<h2>Latest highlights</h2>
+<div class="cards">
+<article class="hc"><small>Champions League, 20 Oct</small><h3>PSG 4–2 Barcelona</h3><p>PSG scored late to beat Barcelona in the match of the round.</p><a href="https://www.youtube.com/results?search_query=PSG+vs+Barcelona+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>Champions League, 20 Oct</small><h3>Liverpool 4–3 Villarreal</h3><p>Liverpool came back from two goals down to win a seven-goal thriller.</p><a href="https://www.youtube.com/results?search_query=Liverpool+vs+Villarreal+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>Champions League, 20 Oct</small><h3>Man City 5–1 AEK</h3><p>Phil Foden scored a hat-trick for City.</p><a href="https://www.youtube.com/results?search_query=Man+City+vs+AEK+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>Champions League, 21 Oct</small><h3>Bayern 2–2 Arsenal</h3><p>Two evenly matched sides shared the points.</p><a href="https://www.youtube.com/results?search_query=Bayern+vs+Arsenal+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>La Liga, 17 Oct</small><h3>Betis 2–5 Barcelona</h3><p>Barcelona scored five away from home.</p><a href="https://www.youtube.com/results?search_query=Betis+vs+Barcelona+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>La Liga, 19 Oct</small><h3>Real Madrid 4–1 Sevilla</h3><p>Real Madrid won comfortably before the Clasico.</p><a href="https://www.youtube.com/results?search_query=Real+Madrid+vs+Sevilla+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>La Liga, 21 Oct</small><h3>Levante 3–1 Athletic</h3><p>Levante won and climbed from 17th to 11th.</p><a href="https://www.youtube.com/results?search_query=Levante+vs+Athletic+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>Serie A, 18 Oct</small><h3>Milan 3–2 Atalanta</h3><p>Milan edged a five-goal match.</p><a href="https://www.youtube.com/results?search_query=Milan+vs+Atalanta+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+<article class="hc"><small>Serie A, 19 Oct</small><h3>Monza 4–0 Cagliari</h3><p>Gustavo Varela scored twice as Monza won big.</p><a href="https://www.youtube.com/results?search_query=Monza+vs+Cagliari+highlights" target="_blank" rel="noopener noreferrer">Search highlights</a></article>
+</div>
+</section>
+
+<section id="match" class="match">
+<h2>Match day</h2>
+<p class="when">Next match: Monday 26 October, 1:30 am IST</p>
+<p class="fixture"><span>Barcelona</span><em>vs</em><span>Real Madrid</span></p>
+<p class="meta">El Clásico. Barcelona lead La Liga with 27 points and Real Madrid are 3rd with 21. Last result: Levante UD 3–1 Athletic.</p>
+</section>
+
+<section id="work" class="work">
+<h2>Clubs to watch</h2>
+<a href="#contact"><div><h3>Real Madrid</h3><small>Santiago Bernabéu, Madrid</small></div><p>Spain’s most decorated club, known for dramatic European nights and a long run of league titles.</p></a>
+<a href="#contact"><div><h3>FC Barcelona</h3><small>Camp Nou, Barcelona</small></div><p>Famous for possession football and La Masia, the academy that produced many of its stars.</p></a>
+<a href="#contact"><div><h3>Atlético Madrid</h3><small>Metropolitano, Madrid</small></div><p>The third force of the big three, built on defensive discipline and fierce fan loyalty.</p></a>
+</section>
+
+<section id="table">
+<h2>La Liga table</h2>
+<div class="top10" id="top-table"></div>
+<ul class="legend"><li class="z1">UEFA Champions League group stage</li><li class="z2">Europa League group stage</li><li class="z3">Europa Conference League qualifiers</li><li class="z4">Relegation</li></ul>
+<div class="tbl"><table>
+<thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead>
+<tbody>
+<tr class="z1"><td>1</td><td>Barcelona</td><td>9</td><td>9</td><td>0</td><td>0</td><td>39</td><td>9</td><td>30</td><td>27</td><td class="f" data-f="WWWWW"></td></tr>
+<tr class="z1"><td>2</td><td>Atlético</td><td>9</td><td>7</td><td>1</td><td>1</td><td>19</td><td>8</td><td>11</td><td>22</td><td class="f" data-f="WWWWW"></td></tr>
+<tr class="z1"><td>3</td><td>Real Madrid</td><td>9</td><td>7</td><td>0</td><td>2</td><td>23</td><td>9</td><td>14</td><td>21</td><td class="f" data-f="WWLWW"></td></tr>
+<tr class="z1"><td>4</td><td>Betis</td><td>9</td><td>6</td><td>1</td><td>2</td><td>16</td><td>14</td><td>2</td><td>19</td><td class="f" data-f="WWDWL"></td></tr>
+<tr class="z2"><td>5</td><td>Real Sociedad</td><td>9</td><td>5</td><td>1</td><td>3</td><td>17</td><td>17</td><td>0</td><td>16</td><td class="f" data-f="WLWWW"></td></tr>
+<tr class="z3"><td>6</td><td>Sevilla</td><td>9</td><td>4</td><td>2</td><td>3</td><td>14</td><td>16</td><td>-2</td><td>14</td><td class="f" data-f="WWLDL"></td></tr>
+<tr><td>7</td><td>Alavés</td><td>9</td><td>3</td><td>2</td><td>4</td><td>13</td><td>10</td><td>3</td><td>11</td><td class="f" data-f="LLDLL"></td></tr>
+<tr><td>8</td><td>Celta</td><td>9</td><td>2</td><td>5</td><td>2</td><td>10</td><td>7</td><td>3</td><td>11</td><td class="f" data-f="DDWDW"></td></tr>
+<tr><td>9</td><td>Deportivo</td><td>9</td><td>2</td><td>5</td><td>2</td><td>13</td><td>12</td><td>1</td><td>11</td><td class="f" data-f="DLDLD"></td></tr>
+<tr><td>10</td><td>Osasuna</td><td>9</td><td>3</td><td>2</td><td>4</td><td>10</td><td>18</td><td>-8</td><td>11</td><td class="f" data-f="LLDLW"></td></tr>
+<tr><td>11</td><td>Levante</td><td>9</td><td>2</td><td>4</td><td>3</td><td>15</td><td>17</td><td>-2</td><td>10</td><td class="f" data-f="LLDDW"></td></tr>
+<tr><td>12</td><td>Villarreal</td><td>9</td><td>2</td><td>3</td><td>4</td><td>13</td><td>13</td><td>0</td><td>9</td><td class="f" data-f="LWWLD"></td></tr>
+<tr><td>13</td><td>Athletic</td><td>8</td><td>2</td><td>3</td><td>3</td><td>8</td><td>9</td><td>-1</td><td>9</td><td class="f" data-f="WDDDL"></td></tr>
+<tr><td>14</td><td>Rayo</td><td>8</td><td>2</td><td>3</td><td>3</td><td>12</td><td>17</td><td>-5</td><td>9</td><td class="f" data-f="WLWDD"></td></tr>
+<tr><td>15</td><td>Getafe</td><td>9</td><td>2</td><td>3</td><td>4</td><td>5</td><td>11</td><td>-6</td><td>9</td><td class="f" data-f="DLWLD"></td></tr>
+<tr><td>16</td><td>Espanyol</td><td>9</td><td>2</td><td>2</td><td>5</td><td>11</td><td>12</td><td>-1</td><td>8</td><td class="f" data-f="WLLDL"></td></tr>
+<tr><td>17</td><td>Racing Santander</td><td>9</td><td>2</td><td>2</td><td>5</td><td>13</td><td>25</td><td>-12</td><td>8</td><td class="f" data-f="WLLDL"></td></tr>
+<tr class="z4"><td>18</td><td>Elche</td><td>9</td><td>1</td><td>4</td><td>4</td><td>11</td><td>17</td><td>-6</td><td>7</td><td class="f" data-f="DLWDD"></td></tr>
+<tr class="z4"><td>19</td><td>Valencia</td><td>9</td><td>1</td><td>3</td><td>5</td><td>6</td><td>15</td><td>-9</td><td>6</td><td class="f" data-f="LWLDD"></td></tr>
+<tr class="z4"><td>20</td><td>Málaga</td><td>9</td><td>0</td><td>4</td><td>5</td><td>6</td><td>18</td><td>-12</td><td>4</td><td class="f" data-f="DLLDL"></td></tr>
+</tbody></table></div>
+<h3 class="nm">Latest results</h3>
+<div class="cards" id="cards-table"></div>
+<h3 class="nm">Next matches (IST)</h3>
+<ul class="fx">
+<li><time>Sat 24 Oct, 12:30 am</time><span>Alavés vs Málaga</span></li>
+<li><time>Sat 24 Oct, 5:30 pm</time><span>Rayo vs Elche</span></li>
+<li><time>Sat 24 Oct, 7:45 pm</time><span>Racing Santander vs Espanyol</span></li>
+<li><time>Sat 24 Oct, 10:00 pm</time><span>Valencia vs Villarreal</span></li>
+<li><time>Sun 25 Oct, 12:30 am</time><span>Atlético vs Deportivo</span></li>
+<li><time>Sun 25 Oct, 6:30 pm</time><span>Athletic vs Getafe</span></li>
+<li><time>Sun 25 Oct, 8:45 pm</time><span>Celta vs Betis</span></li>
+<li><time>Sun 25 Oct, 11:00 pm</time><span>Real Sociedad vs Levante</span></li>
+<li><time>Mon 26 Oct, 1:30 am</time><span>Barcelona vs Real Madrid</span></li>
+<li><time>Tue 27 Oct, 1:30 am</time><span>Sevilla vs Osasuna</span></li>
+</ul>
+</section>
+
+<section id="seriea">
+<h2>Serie A table</h2>
+<div class="top10" id="top-seriea"></div>
+<ul class="legend"><li class="z1">UEFA Champions League group stage</li><li class="z2">Europa League group stage</li><li class="z3">Europa Conference League qualifiers</li><li class="z4">Relegation</li></ul>
+<div class="tbl"><table>
+<thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead>
+<tbody>
+<tr class="z1"><td>1</td><td>Inter</td><td>7</td><td>6</td><td>1</td><td>0</td><td>21</td><td>9</td><td>12</td><td>19</td><td class="f" data-f="WWDWW"></td></tr>
+<tr class="z1"><td>2</td><td>Lazio</td><td>7</td><td>6</td><td>1</td><td>0</td><td>14</td><td>4</td><td>10</td><td>19</td><td class="f" data-f="WDWWW"></td></tr>
+<tr class="z1"><td>3</td><td>Roma</td><td>7</td><td>5</td><td>2</td><td>0</td><td>16</td><td>3</td><td>13</td><td>17</td><td class="f" data-f="WWDDW"></td></tr>
+<tr class="z1"><td>4</td><td>Milan</td><td>7</td><td>4</td><td>3</td><td>0</td><td>14</td><td>7</td><td>7</td><td>15</td><td class="f" data-f="DDWDW"></td></tr>
+<tr class="z2"><td>5</td><td>Como</td><td>7</td><td>4</td><td>2</td><td>1</td><td>12</td><td>7</td><td>5</td><td>14</td><td class="f" data-f="WWLDW"></td></tr>
+<tr class="z3"><td>6</td><td>Frosinone</td><td>7</td><td>4</td><td>1</td><td>2</td><td>13</td><td>9</td><td>4</td><td>13</td><td class="f" data-f="WDWLW"></td></tr>
+<tr><td>7</td><td>Cagliari</td><td>7</td><td>4</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>13</td><td class="f" data-f="WWWDL"></td></tr>
+<tr><td>8</td><td>Juventus</td><td>7</td><td>3</td><td>2</td><td>2</td><td>9</td><td>8</td><td>1</td><td>11</td><td class="f" data-f="DLWDL"></td></tr>
+<tr><td>9</td><td>Napoli</td><td>7</td><td>3</td><td>1</td><td>3</td><td>10</td><td>7</td><td>3</td><td>10</td><td class="f" data-f="LWDWL"></td></tr>
+<tr><td>10</td><td>Torino</td><td>7</td><td>3</td><td>1</td><td>3</td><td>10</td><td>9</td><td>1</td><td>10</td><td class="f" data-f="WLDWW"></td></tr>
+<tr><td>11</td><td>Atalanta</td><td>7</td><td>3</td><td>0</td><td>4</td><td>10</td><td>11</td><td>-1</td><td>9</td><td class="f" data-f="LLLWL"></td></tr>
+<tr><td>12</td><td>Lecce</td><td>7</td><td>3</td><td>0</td><td>4</td><td>9</td><td>12</td><td>-3</td><td>9</td><td class="f" data-f="LWLLW"></td></tr>
+<tr><td>13</td><td>Sassuolo</td><td>7</td><td>2</td><td>2</td><td>3</td><td>12</td><td>14</td><td>-2</td><td>8</td><td class="f" data-f="DWLDL"></td></tr>
+<tr><td>14</td><td>Monza</td><td>7</td><td>2</td><td>1</td><td>4</td><td>13</td><td>15</td><td>-2</td><td>7</td><td class="f" data-f="DLWLW"></td></tr>
+<tr><td>15</td><td>Bologna</td><td>7</td><td>1</td><td>2</td><td>4</td><td>6</td><td>10</td><td>-4</td><td>5</td><td class="f" data-f="DLDWL"></td></tr>
+<tr><td>16</td><td>Udinese</td><td>7</td><td>1</td><td>1</td><td>5</td><td>9</td><td>16</td><td>-7</td><td>4</td><td class="f" data-f="LLLLL"></td></tr>
+<tr><td>17</td><td>Genoa</td><td>7</td><td>1</td><td>1</td><td>5</td><td>5</td><td>13</td><td>-8</td><td>4</td><td class="f" data-f="LDLWL"></td></tr>
+<tr class="z4"><td>18</td><td>Fiorentina</td><td>7</td><td>1</td><td>1</td><td>5</td><td>8</td><td>17</td><td>-9</td><td>4</td><td class="f" data-f="LWDLL"></td></tr>
+<tr class="z4"><td>19</td><td>Parma</td><td>7</td><td>1</td><td>1</td><td>5</td><td>4</td><td>13</td><td>-9</td><td>4</td><td class="f" data-f="DLWLL"></td></tr>
+<tr class="z4"><td>20</td><td>Venezia</td><td>7</td><td>1</td><td>0</td><td>6</td><td>6</td><td>16</td><td>-10</td><td>3</td><td class="f" data-f="LLLLW"></td></tr>
+</tbody></table></div>
+<h3 class="nm">Latest results</h3>
+<div class="cards" id="cards-seriea"></div>
+<h3 class="nm">Next matches (IST)</h3>
+<ul class="fx">
+<li><time>Sat 24 Oct, 12:15 am</time><span>Torino vs Monza</span></li>
+<li><time>Sat 24 Oct, 6:30 pm</time><span>Cagliari vs Bologna</span></li>
+<li><time>Sat 24 Oct, 6:30 pm</time><span>Como vs Sassuolo</span></li>
+<li><time>Sat 24 Oct, 9:30 pm</time><span>Napoli vs Roma</span></li>
+<li><time>Sun 25 Oct, 12:15 am</time><span>Lazio vs Parma</span></li>
+<li><time>Sun 25 Oct, 5:00 pm</time><span>Inter vs Fiorentina</span></li>
+<li><time>Sun 25 Oct, 7:30 pm</time><span>Atalanta vs Frosinone</span></li>
+<li><time>Sun 25 Oct, 7:30 pm</time><span>Genoa vs Venezia</span></li>
+<li><time>Sun 25 Oct, 10:30 pm</time><span>Lecce vs Juventus</span></li>
+<li><time>Mon 26 Oct, 1:15 am</time><span>Udinese vs Milan</span></li>
+</ul>
+</section>
+
+<section id="ucl">
+<h2>Champions League table</h2>
+<div class="top10" id="top-ucl"></div>
+<ul class="legend"><li class="z1">Play-offs</li><li class="z2">Play-offs Qualifiers</li></ul>
+<div class="tbl"><table>
+<thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead>
+<tbody>
+<tr class="z1"><td>1</td><td>PSG</td><td>3</td><td>3</td><td>0</td><td>0</td><td>14</td><td>5</td><td>9</td><td>9</td><td class="f" data-f="WWWNN"></td></tr>
+<tr class="z1"><td>2</td><td>Aston Villa</td><td>3</td><td>3</td><td>0</td><td>0</td><td>12</td><td>3</td><td>9</td><td>9</td><td class="f" data-f="WWWNN"></td></tr>
+<tr class="z1"><td>3</td><td>Liverpool</td><td>3</td><td>3</td><td>0</td><td>0</td><td>12</td><td>7</td><td>5</td><td>9</td><td class="f" data-f="WWWNN"></td></tr>
+<tr class="z1"><td>4</td><td>Real Madrid</td><td>3</td><td>3</td><td>0</td><td>0</td><td>10</td><td>5</td><td>5</td><td>9</td><td class="f" data-f="WWWNN"></td></tr>
+<tr class="z1"><td>5</td><td>Betis</td><td>3</td><td>3</td><td>0</td><td>0</td><td>7</td><td>4</td><td>3</td><td>9</td><td class="f" data-f="WWWNN"></td></tr>
+<tr class="z1"><td>6</td><td>VfB Stuttgart</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>2</td><td>5</td><td>7</td><td class="f" data-f="WWDNN"></td></tr>
+<tr class="z1"><td>7</td><td>Arsenal</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>2</td><td>4</td><td>7</td><td class="f" data-f="WWDNN"></td></tr>
+<tr class="z1"><td>8</td><td>Barcelona</td><td>3</td><td>2</td><td>0</td><td>1</td><td>11</td><td>6</td><td>5</td><td>6</td><td class="f" data-f="WWLNN"></td></tr>
+<tr class="z2"><td>9</td><td>Como</td><td>3</td><td>2</td><td>0</td><td>1</td><td>10</td><td>5</td><td>5</td><td>6</td><td class="f" data-f="WLWNN"></td></tr>
+<tr class="z2"><td>10</td><td>Man City</td><td>3</td><td>2</td><td>0</td><td>1</td><td>9</td><td>5</td><td>4</td><td>6</td><td class="f" data-f="WLWNN"></td></tr>
+<tr class="z2"><td>11</td><td>Club Brugge</td><td>3</td><td>2</td><td>0</td><td>1</td><td>9</td><td>6</td><td>3</td><td>6</td><td class="f" data-f="LWWNN"></td></tr>
+<tr class="z2"><td>12</td><td>SCP</td><td>3</td><td>2</td><td>0</td><td>1</td><td>7</td><td>4</td><td>3</td><td>6</td><td class="f" data-f="WWLNN"></td></tr>
+<tr class="z2"><td>13</td><td>Dortmund</td><td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>4</td><td>1</td><td>6</td><td class="f" data-f="WLWNN"></td></tr>
+<tr class="z2"><td>14</td><td>Bayern</td><td>3</td><td>1</td><td>2</td><td>0</td><td>10</td><td>5</td><td>5</td><td>5</td><td class="f" data-f="WDDNN"></td></tr>
+<tr class="z2"><td>15</td><td>Roma</td><td>3</td><td>1</td><td>1</td><td>1</td><td>8</td><td>5</td><td>3</td><td>4</td><td class="f" data-f="DLWNN"></td></tr>
+<tr class="z2"><td>16</td><td>Atlético</td><td>3</td><td>1</td><td>1</td><td>1</td><td>4</td><td>3</td><td>1</td><td>4</td><td class="f" data-f="LWDNN"></td></tr>
+<tr class="z2"><td>17</td><td>Shakhtar Donetsk</td><td>3</td><td>1</td><td>1</td><td>1</td><td>4</td><td>3</td><td>1</td><td>4</td><td class="f" data-f="DWLNN"></td></tr>
+<tr class="z2"><td>18</td><td>PSV</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>0</td><td>4</td><td class="f" data-f="DLWNN"></td></tr>
+<tr class="z2"><td>19</td><td>Villarreal</td><td>3</td><td>1</td><td>0</td><td>2</td><td>8</td><td>8</td><td>0</td><td>3</td><td class="f" data-f="LWLNN"></td></tr>
+<tr class="z2"><td>20</td><td>Inter</td><td>3</td><td>1</td><td>0</td><td>2</td><td>5</td><td>6</td><td>-1</td><td>3</td><td class="f" data-f="LLWNN"></td></tr>
+<tr class="z2"><td>21</td><td>Man Utd</td><td>3</td><td>1</td><td>0</td><td>2</td><td>5</td><td>6</td><td>-1</td><td>3</td><td class="f" data-f="WLLNN"></td></tr>
+<tr class="z2"><td>22</td><td>Napoli</td><td>3</td><td>1</td><td>0</td><td>2</td><td>5</td><td>7</td><td>-2</td><td>3</td><td class="f" data-f="LLWNN"></td></tr>
+<tr class="z2"><td>23</td><td>Galatasaray</td><td>3</td><td>1</td><td>0</td><td>2</td><td>6</td><td>9</td><td>-3</td><td>3</td><td class="f" data-f="LLWNN"></td></tr>
+<tr class="z2"><td>24</td><td>LASK</td><td>3</td><td>1</td><td>0</td><td>2</td><td>6</td><td>9</td><td>-3</td><td>3</td><td class="f" data-f="LLWNN"></td></tr>
+<tr><td>25</td><td>Sabah</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>6</td><td>-3</td><td>3</td><td class="f" data-f="LWLNN"></td></tr>
+<tr><td>26</td><td>Feyenoord</td><td>3</td><td>1</td><td>0</td><td>2</td><td>4</td><td>8</td><td>-4</td><td>3</td><td class="f" data-f="LWLNN"></td></tr>
+<tr><td>27</td><td>Lens</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>7</td><td>-4</td><td>3</td><td class="f" data-f="WLLNN"></td></tr>
+<tr><td>28</td><td>Bodø/Glimt</td><td>3</td><td>1</td><td>0</td><td>2</td><td>4</td><td>9</td><td>-5</td><td>3</td><td class="f" data-f="LWLNN"></td></tr>
+<tr><td>29</td><td>AEK</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>8</td><td>-5</td><td>3</td><td class="f" data-f="WLLNN"></td></tr>
+<tr><td>30</td><td>RB Leipzig</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>8</td><td>-5</td><td>3</td><td class="f" data-f="LWLNN"></td></tr>
+<tr><td>31</td><td>Fenerbahçe</td><td>3</td><td>0</td><td>2</td><td>1</td><td>3</td><td>9</td><td>-6</td><td>2</td><td class="f" data-f="DLDNN"></td></tr>
+<tr><td>32</td><td>Slavia Praha</td><td>3</td><td>0</td><td>1</td><td>2</td><td>4</td><td>7</td><td>-3</td><td>1</td><td class="f" data-f="LLDNN"></td></tr>
+<tr><td>33</td><td>Viking</td><td>3</td><td>0</td><td>1</td><td>2</td><td>5</td><td>9</td><td>-4</td><td>1</td><td class="f" data-f="LDLNN"></td></tr>
+<tr><td>34</td><td>Porto</td><td>3</td><td>0</td><td>0</td><td>3</td><td>2</td><td>6</td><td>-4</td><td>0</td><td class="f" data-f="LLLNN"></td></tr>
+<tr><td>35</td><td>LOSC</td><td>3</td><td>0</td><td>0</td><td>3</td><td>4</td><td>10</td><td>-6</td><td>0</td><td class="f" data-f="LLLNN"></td></tr>
+<tr><td>36</td><td>Slovan Bratislava</td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>13</td><td>-12</td><td>0</td><td class="f" data-f="LLLNN"></td></tr>
+</tbody></table></div>
+<h3 class="nm">Latest results</h3>
+<div class="cards" id="cards-ucl"></div>
+<h3 class="nm">Next matches (IST)</h3>
+<ul class="fx">
+<li><time>Tue 3 Nov, 11:15 pm</time><span>Shakhtar Donetsk vs Sporting CP</span></li>
+<li><time>Tue 3 Nov, 11:15 pm</time><span>Galatasaray vs VfB Stuttgart</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Atlético vs Bayern</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Barcelona vs Aston Villa</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Feyenoord vs Inter</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Bodø/Glimt vs Lille</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>LASK vs Slovan Bratislava</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Man Utd vs Roma</span></li>
+<li><time>Wed 4 Nov, 1:30 am</time><span>Villarreal vs PSG</span></li>
+<li><time>Wed 4 Nov, 11:15 pm</time><span>AEK vs Real Madrid</span></li>
+</ul>
+</section>
+
+<section id="nl">
+<h2>UEFA Nations League</h2>
+<div class="top10" id="top-nl"></div>
+<div id="nl-groups"></div>
+</section>
+
+<section id="about" class="about">
+<h2>The league</h2>
+<div>
+<p>La Liga is the top division of Spanish football. Twenty clubs play each other home and away, and the club with the most points at the end of the season wins the title.</p>
+<p>Beyond the Madrid and Barcelona giants, clubs like Athletic Club, Sevilla and Villarreal keep the title race unpredictable, and El Clásico remains one of the biggest games in world sport.</p>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<a href="mailto:hello@example.com">hello@example.com</a>
+</section>
+
+<footer>© 2026 Footwork &amp; Fury. Tables and fixtures last updated Thursday 22 October 2026. Match times are in IST.</footer>
+</main>
+<dialog id="sdlg">
+<h2>Settings</h2>
+<label for="cn">Add a table column</label>
+<div class="row"><input id="cn" maxlength="20" placeholder="Column name, e.g. Notes"><button type="button" id="cadd">Add</button></div>
+<p class="hint">New columns appear in all three tables. Click a cell to type in it.</p>
+<p id="smsg" role="alert"></p>
+<ul id="clist"></ul>
+<div class="row"><button type="button" id="sclose">Close</button></div>
+</dialog>
+<dialog id="pwd">
+<form id="pwd-form">
+<h2>Change password</h2>
+<label for="cp">Current password</label><input id="cp" type="password" autocomplete="current-password" required>
+<label for="np">New password</label><input id="np" type="password" autocomplete="new-password" required>
+<label for="rp">Confirm new password</label><input id="rp" type="password" autocomplete="new-password" required>
+<p id="pmsg" role="alert"></p>
+<div class="row"><button type="submit">Save</button><button type="button" id="pcancel">Cancel</button></div>
+</form>
+</dialog>
+<script>
+var who='';
+var creds={'shxhyb_07':'kb12345678','385':'1234','400':'RAAZI'};
+try{var saved=JSON.parse(localStorage.getItem('ff_pw')||'{}');for(var k in saved){if(creds.hasOwnProperty(k)&&typeof saved[k]==='string'){creds[k]=saved[k]}}}catch(e){}
+document.getElementById('login-form').addEventListener('submit',function(e){
+e.preventDefault();
+var u=document.getElementById('u').value.trim(),p=document.getElementById('p').value;
+var ok=creds.hasOwnProperty(u)&&creds[u]===p;
+if(ok){
+who=u;
+document.getElementById('greet').textContent=greeting()+', '+u+' 👋';
+document.getElementById('login').hidden=true;
+document.getElementById('site').hidden=false;
+window.scrollTo(0,0);
+}else{
+document.getElementById('err').textContent='Incorrect username or password. Check both and try again.';
+}
+});
+document.querySelectorAll('td.f').forEach(function(td){td.innerHTML=td.dataset.f.split('').map(function(c){return '<i class="'+c+'">'+(c==='N'?'–':c)+'</i>'}).join('')});
+function greeting(){var hr=new Date().getHours();return hr<12?'Good morning':hr<17?'Good afternoon':'Good evening'}
+document.getElementById('today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+document.getElementById('logout').addEventListener('click',function(){
+document.getElementById('site').hidden=true;
+document.getElementById('login').hidden=false;
+document.getElementById('login-form').reset();
+document.getElementById('err').textContent='';
+window.scrollTo(0,0);
+});
+var dlg=document.getElementById('pwd'),pm=document.getElementById('pmsg');
+document.getElementById('chpw').addEventListener('click',function(){document.getElementById('pwd-form').reset();pm.textContent='';dlg.showModal();});
+document.getElementById('pcancel').addEventListener('click',function(){dlg.close();});
+document.getElementById('pwd-form').addEventListener('submit',function(e){
+e.preventDefault();
+var c=document.getElementById('cp').value,n=document.getElementById('np').value,r=document.getElementById('rp').value;
+if(c!==creds[who]){pm.textContent='Your current password is not correct.';return;}
+if(n.length<4){pm.textContent='Use at least 4 characters for the new password.';return;}
+if(n===c){pm.textContent='The new password must be different from the current one.';return;}
+if(n!==r){pm.textContent='The new passwords do not match.';return;}
+creds[who]=n;
+try{var s=JSON.parse(localStorage.getItem('ff_pw')||'{}');s[who]=n;localStorage.setItem('ff_pw',JSON.stringify(s));}catch(err){}
+pm.textContent='Password changed. Use it the next time you log in.';
+setTimeout(function(){dlg.close();},1500);
+});
+var cols=[],cdata={},sm=document.getElementById('smsg'),sdlg=document.getElementById('sdlg');
+try{var sv=JSON.parse(localStorage.getItem('ff_cols')||'{}');cols=sv.cols||[];cdata=sv.data||{};}catch(e){}
+function saveCols(){try{localStorage.setItem('ff_cols',JSON.stringify({cols:cols,data:cdata}));}catch(e){}}
+function renderCols(){
+document.querySelectorAll('.cc').forEach(function(n){n.remove()});
+document.querySelectorAll('section[id] .tbl table').forEach(function(t){
+var id=t.id||t.closest('section').id;
+cols.forEach(function(name){
+var th=document.createElement('th');th.className='cc';th.textContent=name;t.tHead.rows[0].appendChild(th);
+Array.prototype.forEach.call(t.tBodies[0].rows,function(tr,i){
+var td=document.createElement('td');td.className='cc';td.contentEditable='true';
+var key=id+'-'+i;td.textContent=(cdata[name]||{})[key]||'';
+td.addEventListener('input',function(){cdata[name]=cdata[name]||{};cdata[name][key]=td.textContent;saveCols();});
+tr.appendChild(td);
+});
+});
+});
+var ul=document.getElementById('clist');ul.innerHTML='';
+cols.forEach(function(name,i){
+var li=document.createElement('li');li.textContent=name;
+var b=document.createElement('button');b.type='button';b.textContent='Remove';
+b.addEventListener('click',function(){cols.splice(i,1);delete cdata[name];saveCols();renderCols();});
+li.appendChild(b);ul.appendChild(li);
+});
+}
+function addCol(){
+var inp=document.getElementById('cn'),v=inp.value.trim();
+if(!v){sm.textContent='Type a column name first.';return;}
+if(cols.indexOf(v)>-1){sm.textContent='That column already exists.';return;}
+cols.push(v);inp.value='';sm.textContent='';saveCols();renderCols();
+}
+document.getElementById('cadd').addEventListener('click',addCol);
+document.getElementById('cn').addEventListener('keydown',function(e){if(e.key==='Enter'){addCol();}});
+document.getElementById('settings').addEventListener('click',function(){sm.textContent='';sdlg.showModal();});
+document.getElementById('sclose').addEventListener('click',function(){sdlg.close();});
+var NL={
+A:'France,4,3,1,0,7,2,5,10,WWDWN;Italy,4,2,1,1,8,5,3,7,LWDWN;Belgium,4,2,0,2,6,5,1,6,WLWLN;Türkiye,4,0,0,4,2,11,-9,0,LLLLN',
+B:'Netherlands,4,2,2,0,7,5,2,8,DWDWN;Greece,4,2,2,0,5,3,2,8,WWDDN;Germany,4,1,2,1,3,2,1,5,DLWDN;Serbia,4,0,0,4,3,8,-5,0,LLLLN',
+C:'Spain,4,4,0,0,12,5,7,12,WWWWN;England,4,3,0,1,14,3,11,9,LWWWN;Croatia,4,1,0,3,4,14,-10,3,WLLLN;Czechia,4,0,0,4,2,10,-8,0,LLLLN',
+D:'Portugal,4,4,0,0,9,4,5,12,WWWWN;Denmark,4,2,0,2,7,7,0,6,LWLWN;Wales,4,1,0,3,2,5,-3,3,LLWLN;Norway,4,1,0,3,6,8,-2,3,WLLLN',
+E:'Switzerland,4,4,0,0,11,1,10,12,WWWWN;Slovenia,4,2,1,1,5,3,2,7,DWLWN;Scotland,4,1,1,2,3,5,-2,4,DLWLN;North Macedonia,4,0,0,4,0,10,-10,0,LLLLN',
+F:'Northern Ireland,4,2,2,0,4,0,4,8,WDWDN;Hungary,4,2,1,1,3,2,1,7,LDWWN;Ukraine,4,1,1,2,2,5,-3,4,WDLLN;Georgia,4,0,2,2,0,2,-2,2,LDLDN',
+G:'Austria,4,2,2,0,9,5,4,8,WWDDN;Kosovo,4,1,2,1,3,4,-1,5,WLDDN;Ireland,4,1,2,1,6,4,2,5,LWDDN;Israel,4,0,2,2,2,7,-5,2,LLDDN',
+H:'Sweden,4,3,1,0,7,3,4,10,WWDWN;Bosnia and Herzegovina,4,2,2,0,6,3,3,8,DWDWN;Poland,4,1,1,2,7,4,3,4,DLWLN;Romania,4,0,0,4,3,13,-10,0,LLLLN',
+I:'Albania,4,3,0,1,8,3,5,9,WWLWN;Belarus,4,2,1,1,5,2,3,7,LDWWN;Finland,4,2,1,1,9,2,7,7,WDWLN;San Marino,4,0,0,4,1,16,-15,0,LLLLN',
+J:'Montenegro,4,3,1,0,7,4,3,10,WWWDN;Cyprus,4,2,1,1,5,3,2,7,LDWWN;Armenia,4,1,1,2,4,5,-1,4,WLLDN;Latvia,4,0,1,3,2,6,-4,1,LDLLN',
+K:'Slovakia,4,3,1,0,9,2,7,10,WWDWN;Faroe Islands,4,0,4,0,5,5,0,4,DDDDN;Moldova,4,1,1,2,3,8,-5,4,LDWLN;Kazakhstan,4,0,2,2,5,7,-2,2,DLLDN',
+L:'Iceland,4,2,2,0,7,1,6,8,DWWDN;Estonia,4,1,3,0,2,1,1,6,DDWDN;Bulgaria,4,1,1,2,3,5,-2,4,LDLWN;Luxembourg,4,1,0,3,2,7,-5,3,WLLLN',
+M:'Malta,3,2,1,0,4,2,2,7,WDWNN;Gibraltar,2,0,2,0,1,1,0,2,DDNNN;Andorra,3,0,1,2,1,3,-2,1,LDLNN',
+N:'Azerbaijan,3,1,2,0,2,1,1,5,DDWNN;Lithuania,3,1,1,1,3,2,1,4,WDLNN;Liechtenstein,2,0,1,1,0,2,-2,1,LDNNN'
+};
+var nlHost=document.getElementById('nl-groups');
+Object.keys(NL).forEach(function(g){
+var h=document.createElement('h3');h.textContent='Group '+g;
+var wrap=document.createElement('div');wrap.className='tbl';
+var rows=NL[g].split(';').map(function(r,i){
+var c=r.split(',');
+return '<tr><td>'+(i+1)+'</td><td>'+c[0]+'</td>'+c.slice(1,9).map(function(x){return '<td>'+x+'</td>';}).join('')+'<td class="f" data-f="'+c[9]+'"></td></tr>';
+}).join('');
+wrap.innerHTML='<table id="nl-'+g+'"><thead><tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead><tbody>'+rows+'</tbody></table>';
+nlHost.appendChild(h);nlHost.appendChild(wrap);
+});
+document.querySelectorAll('#nl td.f').forEach(function(td){td.innerHTML=td.dataset.f.split('').map(function(c){return '<i class="'+c+'">'+(c==='N'?'–':c)+'</i>';}).join('');});
+var RES={
+table:'17 Oct|Betis|2|Barcelona|5;17 Oct|Espanyol|0|Atlético|1;17 Oct|Villarreal|0|Elche|0;18 Oct|Valencia|0|Athletic|0;18 Oct|Osasuna|2|Racing Santander|0;18 Oct|Celta|2|Alavés|1;18 Oct|Málaga|2|Real Sociedad|5;19 Oct|Real Madrid|4|Sevilla|1;20 Oct|Getafe|1|Rayo|1;17 Oct|Deportivo|1|Levante|1;21 Oct|Levante|3|Athletic|1',
+seriea:'17 Oct|Frosinone|4|Sassuolo|2;17 Oct|Venezia|1|Napoli|0;17 Oct|Bologna|1|Inter|3;18 Oct|Roma|2|Genoa|0;18 Oct|Udinese|0|Lecce|3;18 Oct|Fiorentina|1|Como|3;18 Oct|Milan|3|Atalanta|2;19 Oct|Juventus|0|Lazio|3;19 Oct|Monza|4|Cagliari|0;20 Oct|Parma|0|Torino|3',
+ucl:'20 Oct|Fenerbahçe|2|Slavia Praha|2;20 Oct|Sabah|1|Dortmund|2;20 Oct|Roma|4|Slovan Bratislava|0;20 Oct|Porto|0|PSV|1;20 Oct|Liverpool|4|Villarreal|3;20 Oct|Man City|5|AEK|1;20 Oct|PSG|4|Barcelona|2;20 Oct|Napoli|4|Bodø/Glimt|3;20 Oct|Stuttgart|1|Atlético|1;21 Oct|Como|4|Man Utd|1;21 Oct|Lille|2|Galatasaray|4;21 Oct|Aston Villa|3|Viking|1;21 Oct|Club Brugge|3|Lens|0;21 Oct|Bayern|2|Arsenal|2;21 Oct|Inter|1|Shakhtar Donetsk|0;21 Oct|Real Madrid|4|RB Leipzig|1;21 Oct|Betis|1|Feyenoord|0;21 Oct|Sporting CP|2|LASK|3'
+};
+Object.keys(RES).forEach(function(id){
+var el=document.getElementById('cards-'+id);if(!el){return;}
+el.innerHTML=RES[id].split(';').map(function(r){
+var c=r.split('|'),h=+c[2],a=+c[4];
+return '<div class="sc"><small>'+c[0]+'</small><div class="'+(h>a?'w':'')+'"><span>'+c[1]+'</span><span>'+c[2]+'</span></div><div class="'+(a>h?'w':'')+'"><span>'+c[3]+'</span><span>'+c[4]+'</span></div></div>';
+}).join('');
+});
+var TOP={
+table:{
+g:'Raphinha|Barcelona|12;Kylian Mbappé|Real Madrid|9;Lamine Yamal|Barcelona|8;Ante Budimir|Osasuna|7;Sergio Camello|Rayo Vallecano|7;Yassir Zabiri|Racing Santander|7;Roberto Fernández|Espanyol|6;Fer Niño|Elche|5;Pierre-Emerick Aubameyang|Deportivo|5',
+a:'Lamine Yamal|Barcelona|6;Javi Hernández|Espanyol|5;Mariano Díaz|Alavés|4;Anthony Gordon|Barcelona|4;Alberto Moleiro|Villarreal|3;José Antonio Morente|Elche|3;Vinícius Júnior|Real Madrid|3'},
+seriea:{
+g:'Antonio Raimondo|Frosinone|7;Donyell Malen|Roma|6;Gustavo Varela|Monza|6;Adrien Rabiot|Milan|4;Marcus Thuram|Inter|4;Lautaro Martínez|Inter|4;Nikola Krstović|Atalanta|4;Daniel Maldini|Cagliari|4;Also on 3 goals: Çalhanoglu, Adams, Ekkelenkamp, Frattesi, Osmajić, Moreira, Kvernadze, Mastantuono, Adzić|—|3',
+a:'Paulo Dybala|Roma|4;Romano Schmid|Frosinone|3;Andy Diouf|Inter|3;Nuno Tavares|Lazio|3;Mattia Zaccagni|Lazio|3;Veiga|Lecce|3;Adrien Rabiot|Milan|3;Belghali|Torino|3;Also on 2 assists: 15 players, including Zalewski, Cambiaghi, Adopo and Nico Paz|—|2'},
+ucl:{
+g:'Ermedin Demirović|Stuttgart|4;Serhou Guirassy|Dortmund|4;Erling Haaland|Man City|4;Harry Kane|Bayern|4;Luis Suárez|Sporting CP|4;Nicolò Tresoldi|Club Brugge|4;Also on 3 goals: Barcola, Torres, Dembélé, Foden, Jackson, Mac Allister, Malen|—|3',
+a:'Lamine Yamal|Barcelona|4;Carlos Forbs|Club Brugge|3;Ousmane Dembélé|PSG|3;Yvan Dibango|LASK|3;Donyell Malen|Roma|3;Kostas Tsimikas|Liverpool|3;Also on 2 assists: Nico Paz, Pau Torres, Deniz Undav, Rio Ngumoha, Matías Soulé|—|2'},
+nl:{
+g:'Harry Kane|England|4;Leo Walta|Finland|4;Lamine Yamal|Spain|4'}
+};
+Object.keys(TOP).forEach(function(id){
+var el=document.getElementById('top-'+id);if(!el){return;}
+var html='';
+[['g','Top scorers','Goals'],['a','Top assists','Assists']].forEach(function(k){
+var d=TOP[id][k[0]];if(!d){return;}
+var prev=null,rank=0;
+html+='<div><h3 class="nm">'+k[1]+'</h3><div class="tw"><table><thead><tr><th>#</th><th>Player</th><th>Club</th><th>'+k[2]+'</th></tr></thead><tbody>'+d.split(';').map(function(r,i){
+var c=r.split('|');if(c[2]!==prev){rank=i+1;prev=c[2];}
+return '<tr><td>'+rank+'</td><td>'+c[0]+'</td><td>'+c[1]+'</td><td>'+c[2]+'</td></tr>';
+}).join('')+'</tbody></table></div></div>';
+});
+html+='<p class="note">Based on public stats sources as of 22 October 2026. Sources can differ by a round, and ties are shown together.</p>';
+el.innerHTML=html;
+});
+renderCols();
+</script>
+</body>
+</html>
